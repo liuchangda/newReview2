@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var x = Math.random();
+        // var y = Math.random();
+        // var max;
+        // console.log(x>y?x:y);
+
+        //三 2
+        // var today = new Date();
+        // var year = today.getFullYear();
+        // if(year%4==0&&year%100!=0||year%400==0){
+        //     console.log(true);
+        // }else{
+        //     console.log(false);
+        // }
+
+        //4.1
+        // var age = prompt("请输入您的年龄0~100","18");
+        // if(age<14) document.write("你是儿童");
+        // else if(age<24&&age>=14) document.write("你是青少年");
+        // else if( age >=24 && age<40) document.write("你是青年");
+        // else if( age >=40 && age <60) document.write("你是中年");
+        // else document.write("你是老年");
+
+        //4.2
+        // var weekday = prompt("请输入数字","0");
+        // weekday = parseInt(weekday);//注意parseInt
+        // switch (weekday) {
+        //     case 0: 
+        //         document.write("星期一");
+        //         break;
+        //    case 1: 
+        //         document.write("星期2");
+        //         break;
+        //    case 2: 
+        //         document.write("星期3");
+        //         break;
+        //    case 3: 
+        //         document.write("星期4");
+        //         break;
+        //    case 4: 
+        //         document.write("星期5");
+        //         break;
+        //    case 5: 
+        //         document.write("星期6");
+        //         break;
+        //    case 6: 
+        //         document.write("星期7");
+        //         break;
+
+        //     default:
+        //         break;
+        // }
+
+        //4.3求阶乘
+        //    function jiec(num) {
+        //        if(num == 1) return 1;
+        //        else return(num*jiec(num-1))
+        //    }
+        //    console.log( jiec(10));
+
+        //4.4阶乘相加
+        // function sum(num) {
+        //     if(num == 1) return 1;
+        //     else return (jiec(num)+sum(num-1));
+        // }
+        // console.log(sum(4));
+
+        //4.5数字塔
+        // var num=5;
+        // for(var i = 1; i <= 5; i++){
+        //     for(var j = 1; j <= i ;j++){
+        //         document.write(j);
+        //     }
+        //     document.write("<br>");//换行方法
+        // }
+
+        // 4.6金字塔
+        // var num = 5;
+        // for(var i = 0;i <= num; i++){
+        //     for(var j = 0; j < num-i; j++){
+        //         document.write("&nbsp");
+        //     }
+        //     for(var k=0; k<=i; k++){
+        //     document.write("*","&nbsp");
+        //     }
+        //     document.write("<br>")
+        // }
+
+        //4.7
+        // var n;
+        // n=100;
+        // while (n >= 100 && n <= 999) {
+        //     if(n % 4 ==2 && n%7 == 3 && n%9 == 5) console.log(n);
+        //     n++;
+        // }
+
+        //4.8四位数字abcd 满足a=b+c；
+        // var n=1000;
+        // while (n>=1000 && n<=9999) {
+        //     var a = parseInt(n/1000);//或者Math.floot(x/1000);
+        //     var b = parseInt((n-a)%100);
+        //     var c = parseInt((n-a-b)%10)
+        //     if(n%13 == 0&& a==b+c) console.log(n);
+        //     n++;
+        // }
+
+        //5.1 求函数
+        // var n = prompt("请输入一个值","0");
+        // function fn(n) {
+        //     console.log(4*n*n+3*n+2);
+        // }
+        // fn(n);   
+
+        //5.2 Min(x,y)
+        // var x = prompt("请输入x的值","0");
+        // var y = prompt("请输入y的值","0");
+        // function min(x,y) {
+        //     document.write(x<y?x:y);
+        // };
+        // min(x,y);
+
+        //5.3 100~1000的素数
+        // var count = 0;
+        // for (var i = 100; i <= 1000; i++) {
+        //     var flag = 1;
+        //     for (var j = 2; j <= Math.sqrt(i); j++) {
+        //         if (i % j == 0) {
+        //             flag = 0;
+        //             break;
+        //         }
+        //     }
+        //     if (flag == 1) {
+        //         document.write(i,"&nbsp");
+        //         count++;
+        //         if (count % 6 == 0) document.write("<br>");
+        //     }
+        // }
+
+        //5.4 非递归计算12!-10!
+        // function fn(n) {
+        //     var t = 1;
+        //     for (var i = 1; i <= n; i++) {
+        //         t *= i;
+        //     }
+        //     return t;
+        // }
+        // console.log(fn(12)-fn(10));
+
+        //5.5金字塔 
+        // var n = 5;
+        // for(var i = 1;i <= n; i++){
+        //     for(var j = 0; j <n-i;j++){
+        //         document.write("&nbsp");
+        //     }
+        //     for(var j = 1;j <= i; j++){
+        //     document.write("*","&nbsp");
+        //     }
+        //     document.write("<br>");
+        // }
+
+        //5.6斐波那契数列 递归
+        // var n = prompt("请输入一个随机数字","1");
+        // function fibonacci(n) {
+        //     if(n == 1) return 1;
+        //     if(n == 2) return 1;
+        //     else return(fibonacci(n-2)+fibonacci(n-1));
+        // }
+        // console.log(fibonacci(n));
+
+        //5.6 斐波那契 非递归
+        // var n = prompt("请输入一个数字","1");
+        // function fibonacci(n) {
+        //     var n1 = 1,n2 = 1,temp;
+        //     if(n <= 2){ return 1; }
+        //     else {
+        //         for(var i = 1; i<= n-2; i++){
+        //             temp = n1 + n2;
+        //             n1 = n2;
+        //             n2 = temp;
+        //         }
+        //         return temp;
+        //     }
+        // }
+        // console.log(fibonacci(n));
+
+        //
+        
+
+    </script>
+</body>
+
+</html>
