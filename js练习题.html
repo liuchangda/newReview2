@@ -193,8 +193,129 @@
         // }
         // console.log(fibonacci(n));
 
-        //
-        
+        //5.7计算PI的近似值
+        // var n = prompt("请输入100或500或1000或10000","100")
+        // var sum = 0;
+        // for(var i = 1; i <= n; i++){
+        //     sum =sum + Math.pow(-1,i-1)*(1/(2*i-1));
+        // }
+        // document.write(4*sum);
+
+        //计算幸运数字获胜率
+        // var i = 0,count = 0;
+        // var arr = new Array();
+        // while (i<3) {
+        //     arr[i] = Math.ceil(Math.random()*8);
+        //     i++;
+        // }
+        // for(var j = 0;j < 3; j++){
+        //     if(arr[j] == 8){
+        //         count ++;
+        //     }
+        //     console.log(arr[j]);
+        // }        
+        // console.log(count/3);
+
+        //6.1 计算平方 平方根 自然对数
+        //     var x = prompt("请输入一个数字","1");
+        //    document.write("x的平方 = ",Math.pow(x,2),"<br>");
+        //    document.write("x的平方根 = ",Math.sqrt(x),"<br>");
+        //    document.write("x的自然对数 = ",Math.log(x),"<br>");
+
+        //6.2 产生0-100 的随机整数 含0 含100
+        //  var n = Math.floor(Math.random()*101);
+        //  document.write(n);
+
+        //6.3 设计页面显示 “现在是x年x月x日x点x分x秒”星期x 欢迎您的到访
+        // var date = new Date();
+        // console.log(date.getFullYear());
+        // document.write("现在是"+date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+
+        // date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒"+"星期"+date.getDay()+"欢迎您的到访！");
+
+        //6.4 提取字符串中的数字
+        // var s = new String(),t = new String();
+        // var flag = 0;
+        // s = prompt("请输入字符串","abcd234")
+        // function collectDigits(s) {
+        //     for(var i= 0; i < s.length; i++){
+        //         if(s.charAt(i)<'9'&&s.charAt(i)>'0'){
+        //             t = t.concat(s.charAt(i));
+        //         }
+        //     }
+        // }
+        // collectDigits(s);
+        // console.log(t);
+
+        //6.5 字符串合并
+        // var s = new String(),
+        //     t = new String(),
+        //     r = new String();
+        // s = prompt("请输入字符串s", "abcd123");
+        // t = prompt("请输入字符串t", "efjh67");
+        // function merge(s, t) {
+        //     ls = s.length;
+        //     ts = t.length;
+        //     if (ls > ts) {
+        //         for (var i = 0; i < ts; i++) {
+        //             r = r.concat(s.charAt(i)).concat(t.charAt(i));
+        //         }
+        //         r = r.concat(s.substring(ts, ls));
+        //     } else {
+        //         for (var i = 0; i < ls; i++) {
+        //             r = r.concat(s.charAt(i)).concat(t.charAt(i));
+        //         }
+        //         r = r.concat(t.substring(ls, ts));
+        //     }
+        // }
+        // merge(s, t);
+        // console.log(r);
+
+        //6.6成绩 sum 均值 不及格
+        // var arr = new Array(),sum = 0;
+        // for(var i = 1; i <= 7; i++){
+        //     arr[i] = prompt("请输入第"+i+"门课成绩",60);console.log(parseInt(arr[i]));
+        //     sum =sum + parseInt(arr[i]);
+        //     if(arr[i]<60) document.write("小于60的第"+i+"门成绩："+arr[i]+"<br>");
+        // }
+        // document.write("<br>");
+        // document.write("总成绩"+sum+"平均分"+sum/7);
+
+        //6.7逆序斐波那
+        // var arr = new Array();var count = 0;
+        // var n = prompt("请输入显示多少项斐波那序列","5");
+        // function fn(n) {
+        //     if(n == 1) return 1;
+        //     if(n == 2) return 1;
+        //     else return(fn(n-1)+fn(n-2));
+        // }
+        // for(var i = 0; i < n ;i++){
+        //     arr[i] = fn(i+1); console.log(arr[i]);
+        // }
+        // for(var j = n-1; j >= 0; j--){
+        //     count++;
+        //     document.write(arr[j],"&nbsp");
+        //     if(count == 6) document.write("<br>");
+        // }
+
+        // 6.8 接受日期参数 返回该日期是所在年份第几天
+        var year = prompt("请输入年份","2021"),month = prompt("请输入月","1"), day = prompt("请输入日","13");
+        var sum = 0;
+        function isLeepYear(year) {
+            if(year % 4 == 0&& year % 100 != 0||year%400 == 0) return true;
+            return false;
+        }
+
+        var arr = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        if(isLeepYear(year)) arr[1]=29;
+
+        function dayOfYear(year,month,day) {
+            for(var i = 1; i < month; i++ ){
+                sum = sum + arr[i-1];
+            }
+            sum = sum + day;
+            return parseInt(sum);
+        }
+        document.write("该日期是该年中的第"+dayOfYear(year,month,day)+"天");
 
     </script>
 </body>
