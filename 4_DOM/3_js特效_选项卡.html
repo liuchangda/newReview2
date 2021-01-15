@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 300px;
+            background: rgba(188, 188, 230, 0.863);
+            margin: 20px auto;
+        }
+        #tabs{
+            border-bottom: 1px solid #000;
+            height: 40px;
+        }
+        #tabs li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        #tabs li.active{
+            background: rgba(0, 0, 255, 0.651);
+            color: aliceblue;
+        }
+        #content{
+            height: 200px;
+        }
+        #content>div{
+            display: none;
+            height: 200px;
+        }
+        #content>div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="tabs">
+            <li class = "active">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div id="content">
+            <div class="active" >111</div>
+            <div>222</div>
+            <div>333</div>
+        </div>
+    </div>
+    <script>
+        var oUl = document.getElementById("tabs");
+        var oCentent = document.getElementById("content")
+
+        var aLi = oUl.getElementsByTagName('li');
+        var aDiv = oCentent.getElementsByTagName('div');
+
+        for(var i = 0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                for(var j = 0; j < aLi.length; j++){
+                    aLi[j].className = '';
+                    aDiv[j].className = '';                    
+                }
+                this.className = 'active';
+                aDiv[this.index].className = 'active';
+            }
+        }
+    </script>
+</body>
+</html>

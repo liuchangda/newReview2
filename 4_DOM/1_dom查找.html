@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="aa">li1</li>
+        <li class="aa">li2</li>
+        <li class="aa">li3  </li>
+    </ul>
+    <script>
+        function getByClass(className, tagName, context) {
+            if (document.getElementsByClassName) {
+                return document.getElementsByClassName(className);
+            }
+        }
+    </script>
+</body>
+
+</html>
