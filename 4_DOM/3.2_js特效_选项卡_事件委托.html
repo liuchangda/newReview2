@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>选项卡</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        li{
+
+        li {
             list-style: none;
         }
-        #container{
+
+        #container {
             width: 300px;
             background: rgba(188, 188, 230, 0.863);
             margin: 20px auto;
         }
-        #tabs{
+
+        #tabs {
             border-bottom: 1px solid #000;
             height: 40px;
         }
-        #tabs li{
+
+        #tabs li {
             float: left;
             width: 100px;
             height: 40px;
             text-align: center;
             line-height: 40px;
         }
-        #tabs li.active{
+
+        #tabs li.active {
             background: rgba(0, 0, 255, 0.651);
             color: aliceblue;
         }
-        #content{
+
+        #content {
             height: 200px;
             position: relative;
         }
-        #content>div{
+
+        #content>div {
             /* display: none; */
             opacity: 0;
             transition: ease 1s opacity;
             height: 200px;
             position: absolute;
         }
-        #content>div.active{
+
+        #content>div.active {
             /* display: block; */
             opacity: 1;
         }
     </style>
 </head>
+
 <body>
     <div id="container">
         <ul id="tabs">
-            <li class = "active">菜单1</li>
+            <li class="active">菜单1</li>
             <li>菜单2</li>
             <li>菜单3</li>
         </ul>
         <div id="content">
-            <div class="active" >111</div>
+            <div class="active">111</div>
             <div>222</div>
             <div>333</div>
         </div>
@@ -69,17 +79,40 @@
         var aLi = oUl.getElementsByTagName('li');
         var aDiv = oCentent.getElementsByTagName('div');
 
+        // for (var i = 0; i < aLi.length; i++) {
+        //     aLi[i].index = i;
+        //     aLi[i].onclick = function () {
+        //         //清空所有样式
+        //         for (var j = 0; j < aLi.length; j++) {
+        //             aLi[j].className = '';
+        //             aDiv[j].className = '';
+        //         }
+        //         // 给选中设置样式
+        //         this.className = 'active';
+        //         aDiv[this.index].className = 'active';
+        //     }
+        // }
+
+
         for(var i = 0; i<aLi.length; i++){
             aLi[i].index = i;
-            aLi[i].onclick = function () {
-                for(var j = 0; j < aLi.length; j++){
+        }
+
+        //事件委托
+        oUl.onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement;
+            if (target.tagName == 'LI') {
+                console.log(target);
+                for (var j = 0; j < aLi.length; j++) {
                     aLi[j].className = '';
-                    aDiv[j].className = '';                    
+                    aDiv[j].className = '';
                 }
-                this.className = 'active';
-                aDiv[this.index].className = 'active';
+                target.className = 'active';
+                aDiv[target.index].className = 'active';
             }
         }
     </script>
 </body>
+
 </html>

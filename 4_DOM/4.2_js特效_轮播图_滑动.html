@@ -17,17 +17,33 @@
 
         #container {
             width: 750px;
+            height: 291px;
             margin: 50px auto;
             position: relative;
+            overflow: hidden;
         }
 
+        /* 改动 浮动后为了横向展示 将宽度扩大 但是不能扩大container*/
+        #img-box{
+            /* 设置position后才能设置left */
+            position: absolute;
+            width: calc(750px * 5); 
+            height: 291px;
+            top: 0;
+            left: 0;
+            /* transition设置过渡属性一定要有初始值 left=0 */
+            transition: left 1s ease;
+
+        }
+        /* 改动  */
         #img-box>img {
-            display: none;
+            /* display: none; */
+            float: left;
         }
-
-        #img-box>img.active {
+        /* 改动 */
+        /* #img-box>img.active {
             display: block;
-        }
+        } */
 
         #tab {
             display: flex;
@@ -116,12 +132,13 @@
             //清空默认样式
             for (var j = 0; j < aLi.length; j++) {
                 aLi[j].className = '';
-                aImg[j].className = '';
+                // aImg[j].className = '';
             }
 
             //给选中加样式
             aLi[curIndex].className = 'active';
-            aImg[curIndex].className = 'active';
+            // aImg[curIndex].className = 'active';
+            oImg.style.left = -750 * curIndex + 'px';
         }
 
 
