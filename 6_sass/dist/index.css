@@ -1,0 +1,124 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  width: 100px;
+  height: 100px;
+  background: #eecc66;
+  /* 选择器的嵌套 */
+}
+#container .box {
+  width: 50px;
+  height: 50px;
+  /*  必须有冒号： 属性的嵌套 */
+  margin-top: 20px;
+  margin-left: 80px;
+  /* 特殊变量的引用 选择器，属性，属性值 */
+}
+#container .box a {
+  color: #000;
+}
+#container .box a:hover {
+  color: #000;
+}
+#container .box-red {
+  background: #ff0000;
+}
+#container .box .student-list li {
+  list-style: none;
+  width: 80px;
+  color: #eecc66;
+}
+#container .box2, #container .box4 {
+  width: 100px;
+  height: 100px;
+}
+#container .box3 {
+  width: 30px;
+  height: 60px;
+}
+#container .box4 {
+  font-size: 50px;
+  background: url("./imgs/banner.jpg");
+}
+#container .box4::after {
+  content: "BANNER";
+  content: 2;
+  content: "ba666nner";
+}
+#container .box5 {
+  color: #eecc66;
+  color: #f3db94;
+  color: #e9bd38;
+  color: #eecc66;
+  color: rgba(238, 204, 102, 0.4);
+}
+#container .box6 {
+  border: 1px solid;
+  border: 1px solid red;
+  border: 2;
+  border: 1px;
+  border: 2;
+  border: 1px solid #000;
+}
+#container .box7 {
+  color: dark, light;
+  color: #000, white;
+  color: true;
+}
+#container .item1 {
+  width: 100px;
+}
+#container .item2 {
+  width: 200px;
+}
+#container .item3 {
+  width: 300px;
+}
+#container .item4 {
+  width: 400px;
+}
+#container .item5 {
+  width: 500px;
+}
+#container .item6 {
+  width: 600px;
+}
+#container .item7 {
+  width: 700px;
+}
+#container .item8 {
+  width: 800px;
+}
+#container .item9 {
+  width: 900px;
+}
+#container .item-1px {
+  width: 1px;
+}
+#container .item-solid {
+  width: solid;
+}
+#container .student-0 {
+  width: 10px;
+}
+#container .student-1 {
+  width: 10px;
+}
+#container .student-2 {
+  width: 10px;
+}
+#container .student-3 {
+  width: 10px;
+}
+#container .student-4 {
+  width: 10px;
+}
+#container .box8 {
+  color: bule;
+}
+
+/*# sourceMappingURL=index.css.map */

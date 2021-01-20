@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+@import './common.scss';
+
+$theme:#eecc66;
+
+$student:'.student-list li';
+$attr:'width';
+
+#container {
+    width: 100px;
+    height: 100px;
+    background: $theme;
+
+    /* 选择器的嵌套 */
+    .box {
+        width: 50px;
+        height: 50px;
+
+        /*  必须有冒号： 属性的嵌套 */
+        margin: {
+            top: 20px;
+            left: 80px;
+        }
+
+        ;
+
+        a {
+            color: #000;
+
+            &:hover {
+                color: #000;
+            }
+        }
+
+        &-red {
+            background: #ff0000;
+            ;
+        }
+
+        /* 特殊变量的引用 选择器，属性，属性值 */
+        #{$student} {
+            list-style: none;
+            #{$attr}: 80px;
+            color: #{$theme};
+        }
+    }
+
+    //许多共用的样式可以用混合定义
+    @mixin box {
+        width: 100px;
+        height: 100px;
+    }
+
+    //可以传参数 可以设置默认值
+    @mixin box1($w, $h:60px) {
+        //相当于定义
+        width: $w;
+        height: $h;
+    }
+
+    .box2 {
+        @include box; //相当于调用
+    }
+
+    .box3 {
+        @include box1(30px); //可以 box1($w:30px)参数
+    }
+
+    $img:'banner';
+
+    .box4 {
+        @extend .box2;
+        font-size: 50px;
+        background: url('./imgs/'+ $img +'.jpg');
+
+        &::after {
+            content: to-upper-case($string: $img);
+            content: str-index($string: $img, $substring: 'a');
+            content: str-insert($string: $img, $insert:'666', $index:3);
+        }
+    }
+
+    .box5 {
+        color: $theme;
+        color: lighten($color:$theme, $amount: 10%);
+        color: darken($color: $theme, $amount: 10%);
+        color: opacify($color: $theme, $amount: 0.5);
+        color: transparentize($color: $theme, $amount: 0.6);
+    }
+
+    //定义变量 列表
+    $list:1px solid;
+
+    .box6 {
+        border: $list;
+        border: append($list, red);
+        border: index(1px solid, solid);
+        border: nth($list, $n:1);
+        border: length($list);
+        border: join($list, #000);
+    }
+
+    $m:(dark:#000,
+        light: white);
+
+    .box7 {
+        color: map-keys($map:$m);
+        color: map-values($m);
+        color: map-has-key($m, light)
+    }
+
+    @for $i from 1 to 10 {
+
+        //不包括10  through 包含10
+        .item#{$i} {
+            width: 100px * $i;
+        }
+    }
+
+    @each $item in $list {
+        .item-#{$item} {
+            width: #{$item};
+        }
+    }
+
+    $i:0;
+
+    @while $i<5 {
+        .student-#{$i} {
+            width: 10px;
+        }
+
+        $i : $i+1;
+    }
+
+    @function fn($n) {
+        @if($n==0) {
+            @return #fff;
+        }
+        @else{
+            @warn '警告';
+            // @error '出错啦';
+            @return bule;
+            
+        }
+    }
+
+    .box8 {
+        color: fn(2);
+    }
+}

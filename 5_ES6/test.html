@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //解构赋值 做变量交换
+        // let [x, y] = [1, 2];
+        // [x, y] = [y, x];
+        // console.log(x,y);
+
+        //深拷贝
+        // let obj = {
+        //     name: 'lisi',
+        //     age: '12',
+        //     brother: {
+        //         age: 'zhao'
+        //     }
+        // };
+        // //封装函数
+        // function clone(obj) {
+        //     let o = {};
+        //     for (let p in obj) {
+        //         //console.log(obj.p);//undefined  .属性位置应该是常量？
+        //         o[p] = obj[p]; //中括号写法：取变量的方式 类似于数组中的index
+        //         console.log(obj[p]);
+        //     }
+        //     return o;
+        // }
+        // var obj2 = clone(obj);
+        // obj.brother.age = 'wa';
+        // console.log(obj2);
+
+        // var obj3 = [];
+        // console.log(typeof obj == 'arr');
+
+        // let p = new Promise((resolve, reject) => {
+        //     //做一些异步操作
+        //     setTimeout(function () {
+        //         var num = Math.ceil(Math.random() * 10); //生成1-10的随机数
+        //         if (num <= 5) {
+        //             resolve(num);
+        //         } else {
+        //             reject('数字太大了');
+        //         }
+        //     }, 2000);
+        // });
+        // p.then((data) => {
+        //         console.log('resolved', data);
+        //     }, (err) => {
+        //         console.log('rejected', err);
+        //     }
+        // )
+
+        // let str = 'hello';
+        // console.log(str.length);
+        // for(let i = 0; i < str.length; i++){
+        //     console.log(str[i]);
+        // }
+
+        let nums = [5, 6, 7]
+        let map = new Map();
+        nums.forEach(function (value, key) {
+            map.set(key, nums[key]); 
+        })
+        console.log(map);
+    </script>
+</body>
+
+</html>
