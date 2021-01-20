@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            name: 'liuneng',
+            age: 44,
+            brother: {
+                name: 'zhaosi'
+            }
+        }
+
+        function clone(obj) {
+            let o = obj.constructor === Array ? [] : {}; //声明 开辟新空间 可以称得上是拷贝
+            for (let p in obj) {
+                if (typeof obj[p] === 'object') { //若二级属性是对象 则继续克隆 深拷贝
+                    o[p] = clone(obj[p]);
+                } else {
+                    o[p] = obj[p];
+                }
+            }
+            return o;
+        }
+        let obj2 = clone(obj1)
+        obj1.name = 'wangwu';
+        console.log(obj2);//还是liuneng
+    </script>
+</body>
+
+</html>
