@@ -22,27 +22,25 @@
 输入：x = 0
 输出：0
 */
-var reverse = (x) => {
-    // x -> num
-    let str = x.toString(); //str -> String
-    let arr = str.split(''); //arr -> Array 字符串数组
-    //判断是否有负号
-    if (arr[0] != "-") {
-        let num = Number(arr.reverse().join(''));
-        if (num <= 2147483647 && num >= -2147483647) {
-            return num;
-        } else {   
-            return 0;
-        }
-    }
-    else if (arr[0] == '-') {
-        delete arr[0];
-        let num = Number(arr.reverse().join(''));
-        if (num <= 2147483647 && num >= 2147483647) {
-            return ~num + 1;
-        } else return 0;
-}
-}
-console.log(reverse(-123));
+// //vue的双向数据绑定 新版本 虚拟DOM
 
-// vue的双向数据绑定 新版本 虚拟DOM
+// var reverse = (x) => {
+//     let result = 0;
+//     while (x != 0) {
+//         result = result * 10 + x % 10;
+//         x = x / 10 | 0;
+//     }
+//     return result | 0 == result ? result : 0;
+// }
+
+//暴力
+var reverse = (x) => {
+    let num = Number(Math.abs(x).toString().split('').reverse().join(''));
+    if (x < 0) {
+        return num <= Math.pow(2, 31) ? -num : 0;
+    }
+    else {
+        return num < Math.pow(2, 31) ? num : 0;
+    }
+}
+console.log(reverse(15454252225888));

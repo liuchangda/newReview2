@@ -19,7 +19,7 @@
         <ul>
             <li v-for=' (item,index) in showList'>
                 <span @click="change(item)" :class="{active:item.isActive}">{{item.content}}</span>
-                <button @click="del(index)">刪除</button>
+                <button @click="del(item)">刪除</button>
             </li>
         </ul>
     </div>
@@ -69,13 +69,19 @@
                         isActive: false
                     });
                     this.msg = '',
-                    this.showList = this.list
+                        this.showList = [...this.list]
                 },
                 change(item) {
                     item.isActive = !item.isActive;
                 },
-                del(index) {
-                    this.list.splice(index, 1)
+                //注意这里解决了个bug
+                del(item) {
+                    let index = this.list.findIndex((value, index, arr) => {
+                        return value == item;
+                    })
+                    this.list.splice(index, 1);
+                    this.showList = [...this.list];
+                    this.msg = ''
                 },
                 search() {
                     this.showList = this.list.filter((value, key, arr) => {
