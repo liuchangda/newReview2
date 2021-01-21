@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div @click='fn1' id="div1">div1
+            <div @click.stop = 'fn2' id="div2">div2</div>
+        </div>
+        <a @click.prevent = 'fn3' href="https://www.baidu.com">百度一下</a>
+    </div>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                msg: 'hello world'
+            },
+            methods:{
+                fn1(){
+                    console.log(div1);
+                },
+                fn2(){
+                    console.log(div2);
+                },
+                fn3(){
+                    console.log('aaa');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

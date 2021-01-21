@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style>
+        .active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input @keyup="search" type="text" v-model="msg">
+        <button @click="add">添加</button>
+        <ul>
+            <li v-for=' (item,index) in showList'>
+                <span @click="change(item)" :class="{active:item.isActive}">{{item.content}}</span>
+                <button @click="del(index)">刪除</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                msg: '',
+                list: [{
+                        content: '写作业 1',
+                        isActive: false
+                    },
+                    {
+                        content: '写作业 2',
+                        isActive: false
+                    },
+                    {
+                        content: '写作业 3',
+                        isActive: false
+                    }
+                ],
+                showList: [{
+                        content: '写作业 1',
+                        isActive: false
+                    },
+                    {
+                        content: '写作业 2',
+                        isActive: false
+                    },
+                    {
+                        content: '写作业 3',
+                        isActive: false
+                    }
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.push({
+                        content: this.msg,
+                        isActive: false
+                    });
+                    this.msg = '',
+                    this.showList = this.list
+                },
+                change(item) {
+                    item.isActive = !item.isActive;
+                },
+                del(index) {
+                    this.list.splice(index, 1)
+                },
+                search() {
+                    this.showList = this.list.filter((value, key, arr) => {
+                        return value.content.includes(this.msg);
+                    })
+                    console.log(this.list);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

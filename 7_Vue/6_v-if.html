@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='change'>改变</button>
+        <!-- v-if会频繁对dom插入删除   -->
+        <p v-if='flag'>v-if显示</p>
+        <p v-else>不显示</p>
+        <!-- v-show不会操作dom 而是控制显示隐藏  -->
+        <p v-show='flag'>show</p>
+    </div>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                flag: true,
+            },
+            methods:{
+                change(){
+                    this.flag = !this.flag;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
