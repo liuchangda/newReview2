@@ -1,0 +1,9 @@
+h1{
+    color:red;
+}
+#div1{
+    background: url('./imgs/1.jpg');
+    height: 400px;
+    transform: rotate();
+}
+/* 这里写完在js文件中引入 */
