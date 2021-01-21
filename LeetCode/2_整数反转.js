@@ -41,7 +41,7 @@ var reverse = (x) => {
         if (num <= 2147483647 && num >= 2147483647) {
             return ~num + 1;
         } else return 0;
-    }
+}
 }
 console.log(reverse(-123));
 
