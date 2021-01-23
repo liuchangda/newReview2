@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试专用</title>
 </head>
-<body>
-    <script>
-        //虚拟dom，参数分别为标签名、属性对象、子DOM列表
-        var VElement = function(tagName, props, children) {
-            //保证只能通过如下方式调用：new VElement
-            console.log(this);
-            if (!(this instanceof VElement)) {
-            return new VElement(tagName, props, children);
-            }
 
-            //可以通过只传递tagName和children参数
-            // if (util.isArray(props)) {
-            // children = props;
-            // props = {};
-            // }
-        }
-       VElement();
+<body>
+    <div id="app" @click="chooseAddress(item,index)" v-for="(item,index) in addresses">xxxxx
+    </div>
+    <script src="./vue.js" ></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                addresses:[1,2,3,4]
+            },
+            methods
+        })
+        //虚拟dom，参数分别为标签名、属性对象、子DOM列表
+        //     var VElement = function(tagName, props, children) {
+        //         //保证只能通过如下方式调用：new VElement
+        //         console.log(this);
+        //         if (!(this instanceof VElement)) {
+        //         return new VElement(tagName, props, children);
+        //         }
+
+        //         可以通过只传递tagName和children参数
+        //         if (util.isArray(props)) {
+        //         children = props;
+        //         props = {};
+        //         }
+        //     }
+        //    VElement();
     </script>
 </body>
+
 </html>

@@ -37,17 +37,19 @@
     <script src="./vue.js"></script>
 
     <script>
+        var obj = {
+            msg: 'hello world',
+            fruit: ['apple'],
+            city: '齐',
+            sex: 0
+        }
+        Object.freeze(obj);
         //vue是个对象  传参 
         let vm = new Vue({
             /* 2、确定要挂载的元素 */
             el: '#app',
             /* 3、声明要绑定的元素 */
-            data: {
-                msg: 'hello world',
-                fruit: ['apple'],
-                city: '齐',
-                sex:0
-            }
+            data:obj,
         });
     </script>
 </body>
