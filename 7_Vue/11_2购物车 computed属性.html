@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
+      width: 500px;
+      margin: 30px auto;
+    }
+
+    li {
+      list-style: none;
+      height: 40px;
+      line-height: 40px;
+      background: #88c326;
+      margin: 10px 0;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    ul {
+      border-bottom: 1px solid #000;
+    }
+
+    .active {
+      background: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1、引入 vue -->
+  <div id="app">
+    <h1>商品列表</h1>
+    <ul>
+      <li v-for="(item,index) in list" :key="index" :class="{active:item.isActive}" @click="change(item)">
+        <span>{{item.name}}</span>
+        <span>{{item.price}}</span>
+      </li>
+    </ul>
+    <h3>总价：{{sum()}}</h3>
+    <h3>总价：{{total}}</h3>
+    <input type="text" v-model="msg">
+  </div>
+  <!-- 计算属性和方法调用的区别：
+      方法调用：每当触发页面重新渲染时（data 当中有数据改变），方法就会被调用；
+      计算属性：只有在计算所需的相关依赖发生变化时，才会重新计算；
+  -->
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      // 2、确定要挂载的元素
+      el: '#app',
+      // 3、声明要绑定的数据
+      data: {
+        msg: 'hello',
+        list: [{
+            name: '衬衫',
+            price: 999,
+            isActive: false
+          },
+          {
+            name: '电脑',
+            price: 13800,
+            isActive: false
+          },
+          {
+            name: '裙子',
+            price: 1999,
+            isActive: false
+          },
+          {
+            name: '裤子',
+            price: 888,
+            isActive: false
+          },
+        ],
+      },
+      computed: {
+        // 计算属性必须有返回值
+        total() {
+          console.log(999);
+          let result = 0;
+          this.list.forEach((element) => {
+            element.isActive == true ? result += element.price : '';
+          })
+          return result;
+        }
+      },
+      methods: {
+        change(item) {
+          item.isActive = !item.isActive;
+        },
+        sum() {
+          console.log(666);
+          let result = 0;
+          this.list.forEach((element) => {
+            element.isActive == true ? result += element.price : '';
+          })
+          return result;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

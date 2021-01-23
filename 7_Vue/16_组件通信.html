@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{count}}
+        <!-- <com-name :title="msg" :fn="addAssist" ></com-name> -->
+        <com-name :title="msg" @newadd="addAssist"></com-name>
+
+    </div>
+
+    <template id="tpl">
+        <div>
+            <!-- 父向子：子组件利用父组件的值 需要在子组件的props中接收 才能用啊 -->
+            <h3>标题：{{title}}</h3>
+            <button @click="add" >增加</button>
+        </div>
+    </template>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                msg: 'hello world',
+                count:0
+            },
+            methods:{
+                addAssist(){
+                    this.count++;
+                }
+            },
+            components: {
+                'comName': {
+                    template: '#tpl',
+                    data() {
+                        return {
+
+                        }
+                    },
+                    props:['title','fn'],
+                    methods:{
+                        add(){
+                            /* 子向父：子组件修改父组件的值 */
+                            /* 方案一：即 子组件某个事件触发时 想要改动父组件
+                                老方法 父组件向子组件传值 传了一个方法 
+                            */
+                            // this.fn();
+
+                            this.$emit('newadd');
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
