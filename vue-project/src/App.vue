@@ -2,7 +2,20 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Course</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <!-- 
+      路由传参：
+        path + query : 地址栏【能】够看到参数，刷新页面时参数【不会】丢失
+        name + params : 地址栏【不能】够看到参数，刷新页面时参数【会】丢失
+        url + params : 地址栏【能】够看到参数，刷新页面时参数【不会】丢失
+     -->
+      <router-link :to="{path:'/user',query:{name:'xiaoming',age:12}}">User</router-link> |
+      <!-- <router-link :to="{name:'User',params:{name:'zhaosi',age:88}}">User</router-link> | -->
+      <router-link to="/detail/liuneng/99">Detail</router-link> |
+      <router-link to="/test">Test</router-link> 
+
+
+
     </div>
     <router-view />
   </div>

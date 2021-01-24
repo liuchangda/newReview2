@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        ul {
+            border-bottom: 1px solid #000;
+        }
+
+        li {
+            list-style: none;
+            background: rgb(246, 211, 52);
+            height: 40px;
+            line-height: 40px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        .active {
+            background: rgb(245, 61, 61);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>商品列表</h1>
+        <ul>
+            <li :class="{active:item.isActive}" @click="change(item)" F v-for="item in list">
+                <span>{{item.content}}</span>
+                <span>{{item.price}}</span>
+            </li>
+        </ul>
+        <h3>总价：{{sum()}}</h3>
+        <h3>总价：{{total}}</h3>
+
+    </div>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                msg: 'hello world',
+                list: [{
+                        content: '衬衫',
+                        price: 99,
+                        isActive: false
+                    },
+                    {
+                        content: '裙子',
+                        price: 99,
+                        isActive: false
+                    },
+                    {
+                        content: '裤子',
+                        price: 99,
+                        isActive: false
+                    },
+                    {
+                        content: '毛衣',
+                        price: 99,
+                        isActive: false
+                    },
+                ]
+            },
+            computed: {
+                total() {
+                    let result = 0;
+                    this.list.forEach(value => {
+                        value.isActive == true ? result += value.price : '';
+                    });
+                    return result;
+                }
+            },
+            methods: {
+                change(item) {
+                    item.isActive = !item.isActive;
+                },
+                sum() {
+                    let result = 0;
+                    this.list.forEach(value => {
+                        value.isActive == true ? result += value.price : '';
+                    });
+                    return result;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
