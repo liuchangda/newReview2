@@ -50,20 +50,22 @@ const routes = [
     //redirect: '/', //敲入path 实际访问redirect的
     // redirect: '/detail/:name/:age',
     component: () => import('../views/Test.vue'),
-    beforeEnter:(to,from,next)=>{
+    beforeEnter: (to, from, next) => {
       console.log(to);
       console.log(next);
-      if(to.name=='Test') next();
+      if (to.name == 'Test') next();
       else next('/')
     }
   },
-
+  {
+    path: '/count',
+    name: 'Count',
+    component: () => import('../views/Count.vue')
+  },
   {
     path: '*',
     name: 'Error',
     component: () => import('../views/Error.vue')
-
-
   }
 ]
 

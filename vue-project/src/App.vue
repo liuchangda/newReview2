@@ -12,9 +12,8 @@
       <router-link :to="{path:'/user',query:{name:'xiaoming',age:12}}">User</router-link> |
       <!-- <router-link :to="{name:'User',params:{name:'zhaosi',age:88}}">User</router-link> | -->
       <router-link to="/detail/liuneng/99">Detail</router-link> |
-      <router-link to="/test">Test</router-link> 
-
-
+      <router-link to="/test">Test</router-link> |
+      <router-link to="/count">vuex</router-link> 
 
     </div>
     <router-view />
