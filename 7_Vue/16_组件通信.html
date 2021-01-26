@@ -19,7 +19,9 @@
         <div>
             <!-- 父向子：子组件利用父组件的值 需要在子组件的props中接收 才能用啊 -->
             <h3>标题：{{title}}</h3>
-            <button @click="add" >增加</button>
+            <!-- <button @click="add" >增加</button> -->
+            <button @click="$emit('newadd')">增加</button>
+
         </div>
     </template>
 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dia-box {
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 400px;
+            background: #fdeb99;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .dia-box header,
+        .dia-box footer {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .dia-box header span {
+            float: right;
+        }
+
+        .dia-box main label {
+            display: inline-block;
+            width: 80px;
+        }
+
+        .wrapper {
+            padding: 0 5px;
+        }
+
+        .dia-box main {
+            border-top: 1px solid rgb(102, 97, 97);
+            border-bottom: 1px solid rgb(102, 97, 97);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="showLogin">登录</button>
+        <button @click="showRegister">注册</button>
+
+        <my-com v-show="isShowLogin" title="登录" @close2="close" >
+            <p>
+                <label for="login-username">用户名：</label>
+                <input type="text" id="login-username">
+            </p>
+            <p>
+                <label for="login-pwd">密码：</label>
+                <input type="text" id="login-pwd">
+            </p>
+
+        </my-com> 
+        <my-com v-show="isShowRegist" title="注册" @close2="close">
+            <p><label for="register-username">用户名：</label>
+                <input type="text" id="register-username"></p>
+            <p>
+                <label for="register-pwd">密码：</label>
+                <input type="text" id="register-pwd"></p>
+            <p><label for="register-re-pwd">确认密码：</label>
+                <input type="text" id="register-re-pwd"></p>
+        </my-com>
+    </div>
+
+    <template id="tpl">
+        <div class="dia-box">
+            <header class="wrapper">
+                {{title}}
+                <!-- <span @click="close1">X</span> -->
+                <span @click="$emit('close2')">X</span>
+            </header>
+            <main class="wrapper">
+                <slot></slot>
+            </main>
+            <footer class="wrapper"><button @click="$emit('close2')" >{{title}}</button></footer>
+        </div>
+    </template>
+
+    <!-- 1、引入vue -->
+    <script src="./vue.js"></script>
+    <script>
+        //vue是个对象  传参 
+        let vm = new Vue({
+            /* 2、确定要挂载的元素 */
+            el: '#app',
+            /* 3、声明要绑定的元素 */
+            data: {
+                isShowLogin: false,
+                isShowRegist: false,
+            },
+            methods: {
+                showLogin() {
+                    this.isShowLogin = true;
+                    this.isShowRegist = false;
+                },
+                showRegister() {
+                    this.isShowLogin = false;
+                    this.isShowRegist = true;
+                },
+                close() {
+                    this.isShowLogin = false;
+                    this.isShowRegist = false;
+                }
+            },
+            components: {
+                'myCom': {
+                    template: "#tpl",
+                    props: ['title'],
+                    data() {
+                        return {
+
+                        }
+                    },
+                    methods: {
+                        // close1() {
+                        //     this.$emit('close2')
+                        // },
+                    }
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

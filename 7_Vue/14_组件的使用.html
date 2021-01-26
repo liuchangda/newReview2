@@ -10,12 +10,12 @@
 <body>
     <!-- 1、引入 vue -->
     <div id="app">
-        <my-com title="全局组件" :msg="message1"></my-com>
+        <my-com title="全局组件" :message="msg"></my-com>
         <!-- <tpl1 title="局部组件" :msg="msg"></tpl1> -->
     </div>
 
     <div id="app1">
-        <my-com title="全局组件" :msg="message2"></my-com>
+        <my-com title="全局组件" :message="message2"></my-com>
         <tpl1 title="局部组件" :msg="message2"></tpl1>
     </div>
 
@@ -23,11 +23,11 @@
     <script>
         // 全局组件
         Vue.component('myCom', {
-            template: '<div> {{ title }}  {{msg}} </div>',
+            template: '<div> {{ title }}  {{message}} </div>',
             /* 
               通过 props 来接收父组件传的值
             */
-            props: ['title', 'msg']
+            props: ['title', 'message']
         })
 
         let vm1 = new Vue({
@@ -35,7 +35,7 @@
             el: '#app',
             // 3、声明要绑定的数据
             data: {
-                message1: 'hello word7'
+                msg: 'hello word7'
             }
         })
 
