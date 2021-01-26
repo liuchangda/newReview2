@@ -2,10 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+//样式重置文件和rem计算文件
+import './assets/css/reset.css'
+import './assets/js/rem.js'
+//引入第三方库
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
 
 Vue.config.productionTip = false
 
-// 4. 创建和挂载根实例。记得要通过 router 配置参数注入路由，从而让整个应用都有路由功能
 new Vue({
   router,
   store,

@@ -19,31 +19,28 @@ export default {
     go() {
       this.$router.go(-2); //回退两步 正数为前进
     },
-    // goHome() {
-    //   this.$router.push("/"); //无需传参数的
-    //   this.$router.push({
-    //     name: "User",
-    //     params: {
-    //       name: "liuchang",
-    //       age: 21,
-    //     },
-    //   });
-    // },
     goHome() {
+      /* router.push()这种形式其实相当于router-link 参数为router-link中的to */
+      //针对于路由传参是 path+query的形式
       this.$router.push({
         path: "/user",
         query: {
-          name: "haha",
-          age: 666,
+          name: "liuchang",
+          age: 21,
         },
       });
-    //   this.$router.push({
-    //     path: "/user",
-    //     query: {
-    //       name: "liuchang",
-    //       age: 21,
-    //     },
-    //   });
+      //针对于路由传参方式为 name+params
+      this.$router.push({
+        name: "User",
+        params: {
+          name: "liuchang",
+          age: 21,
+        },
+      });
+      //针对于路由传参方式为 url+params 
+      this.$router.push({
+        path: "/detail/111/222",
+      });
     },
   },
   components: {},
