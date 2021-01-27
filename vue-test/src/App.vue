@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <com-header></com-header>
-    <router-view />
+    <router-view class="main" />
     <com-footer></com-footer>
   </div>
 </template>
@@ -35,5 +35,8 @@ a {
   &.router-link-exact-active {
     color: #000;
   }
+}
+.main{
+  padding: 1rem 0;
 }
 </style>

@@ -10,6 +10,11 @@ const routes = [
     component: () => import('../views/Movie.vue'),
   },
   {
+    path: '/tvdetail/:id',
+    name: 'TvDetail',
+    component: () => import('../views/TvDetail.vue'),
+  },
+  {
     path: '/music',
     name: 'Music',
     component: () => import('../views/Music.vue'),
