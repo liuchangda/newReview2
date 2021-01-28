@@ -8,8 +8,12 @@ import './assets/js/rem.js'
 //引入第三方库
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+//引入第三方库
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
+Vue.use(ElementUI);
 
 
 Vue.config.productionTip = false
