@@ -1,13 +1,23 @@
 <template>
-  <div id="chat-list">
+  <div id="chat">
+    <div class="chat-list">
+      <div v-for="(item, index) in chatList" :key="index">
+        <div class="question">
+          <span>{{ item.question }}</span>
+        </div>
+        <div class="answer">
+          <span>{{ item.answer }}</span>
+        </div>
+      </div>
+    </div>
     <div class="chat-form">
-      <el-form :inline="true" :model="chatText" class="demo-form-inline">
-        <el-form-item label="审批人">
-          <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      <el-form :inline="true" class="demo-form-inline">
+        <el-form-item>
+          <el-input v-model="chatText" placeholder="请输入信息..."></el-input>
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">查询</el-button>
+          <el-button type="primary" @click="sendMessage">发送</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -30,7 +40,8 @@ export default {
   },
   data() {
     return {
-      chatText:''
+      chatText: "",
+      chatList: [],
     };
   },
   methods: {
@@ -75,7 +86,7 @@ export default {
         time_stamp: this.getTimeStamp(),
         nonce_str: this.getNonceStr(),
         session: "10000",
-        question: "你叫啥",
+        question: this.chatText,
       };
       params.sign = this.getSign(params);
       console.log(params);
@@ -83,6 +94,10 @@ export default {
         .get(baseUrl + requestUrl, { params })
         .then((res) => {
           console.log(res);
+          this.chatList.push({
+            question: this.chatText,
+            answer: res.data.data.answer,
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -93,4 +108,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.chat-form {
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+.chat-list {
+  .question {
+    text-align: right;
+    span {
+      background: rgb(171, 240, 165);
+    }
+  }
+  .answer {
+    text-align: left;
+    span {
+      background: rgb(143, 248, 133);
+    }
+  }
+}
 </style>
