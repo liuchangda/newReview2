@@ -114,7 +114,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-      // this.lazyLoad();
     },
     scrollToBottom() {
       this.$nextTick(() => {
@@ -123,32 +122,6 @@ export default {
         container.scrollTop = container.scrollHeight;
         console.log(container.scrollTop, container.scrollHeight);
       });
-    },
-    lazyLoad() {
-      let htmlDom = document.documentElement;
-      let deviceH = htmlDom.clientHeight;
-      let fullH = htmlDom.offsetHeight;
-      let scrollT = htmlDom.offsetHeight;
-      let scrollH = htmlDom.scrollHeight;
-      console.log(
-        "scrollT:" + scrollT,
-        "deviceH:" + deviceH,
-        "fullH:" + fullH,
-        "scrollH:" + scrollH
-      );
-      // scrollT = htmlDom.scrollHeight;
-      window.onscroll = () => {
-        fullH = htmlDom.offsetHeight;
-        scrollT = htmlDom.scrollTop;
-        console.log(
-          "scrollT:" + scrollT,
-          "deviceH:" + deviceH,
-          "fullH:" + fullH,
-          "scrollH:" + scrollH
-        );
-
-        // /div.scrollTop = div.scrollHeight;
-      };
     },
   },
 };
