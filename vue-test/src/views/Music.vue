@@ -33,14 +33,14 @@ export default {
             id: 597592921,
           },
         })
-        .then( async (res) => {
+        .then(async (res) => {
           this.playList = res.data.playlist.tracks;
-          this.audio = this.playList.map((item,index) => {
-            this.getSong(item.id,index);
+          this.audio = this.playList.map((item, index) => {
+            this.getSong(item.id, index);
             return {
               name: item.name,
               artist: item.ar[0].name,
-                url: this.mp3Url,//''
+              url: this.mp3Url, //''
               cover:'https://images.weserv.nl/?url='+ item.al.picUrl, // prettier-ignore
               //   lrc: "",
               id: item.id,
@@ -52,7 +52,7 @@ export default {
           console.log(err);
         });
     },
-    getSong(id,index) {
+    getSong(id, index) {
       this.axios
         .get("https://bird.ioliu.cn/netease/song?id=" + id)
         .then((res) => {
