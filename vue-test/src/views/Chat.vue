@@ -118,9 +118,7 @@ export default {
     scrollToBottom() {
       this.$nextTick(() => {
         var container = document.documentElement;
-        console.log(container.scrollTop, container.scrollHeight + 100);
         container.scrollTop = container.scrollHeight;
-        console.log(container.scrollTop, container.scrollHeight);
       });
     },
   },
