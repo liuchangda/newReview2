@@ -1,15 +1,18 @@
 <template>
   <div id="chat">
-    <div class="chat-list">
-      <div v-for="(item, index) in chatList" :key="index">
-        <div class="question">
-          <span>{{ item.question }}</span>
-        </div>
-        <div class="answer">
-          <span>{{ item.answer }}</span>
+    <div class="box">
+      <div class="chat-list">
+        <div v-for="(item, index) in chatList" :key="index">
+          <div class="question">
+            <span>{{ item.question }}</span>
+          </div>
+          <div class="answer">
+            <span>{{ item.answer }}</span>
+          </div>
         </div>
       </div>
     </div>
+
     <div class="chat-form">
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
@@ -36,8 +39,19 @@ export default {
     //   session: "10000",
     //   question: "你叫啥",
     // });
-    this.sendMessage();
+    // this.sendMessage();
+    // this.lazyLoad();
   },
+
+  mounted() {
+    this.scrollToBottom();
+  },
+
+  //每次页面渲染完之后滚动条在最底部
+  updated() {
+    this.scrollToBottom();
+  },
+
   data() {
     return {
       chatText: "",
@@ -89,11 +103,9 @@ export default {
         question: this.chatText,
       };
       params.sign = this.getSign(params);
-      console.log(params);
       this.axios
         .get(baseUrl + requestUrl, { params })
         .then((res) => {
-          console.log(res);
           this.chatList.push({
             question: this.chatText,
             answer: res.data.data.answer,
@@ -102,6 +114,41 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+      // this.lazyLoad();
+    },
+    scrollToBottom() {
+      this.$nextTick(() => {
+        var container = document.documentElement;
+        console.log(container.scrollTop, container.scrollHeight + 100);
+        container.scrollTop = container.scrollHeight;
+        console.log(container.scrollTop, container.scrollHeight);
+      });
+    },
+    lazyLoad() {
+      let htmlDom = document.documentElement;
+      let deviceH = htmlDom.clientHeight;
+      let fullH = htmlDom.offsetHeight;
+      let scrollT = htmlDom.offsetHeight;
+      let scrollH = htmlDom.scrollHeight;
+      console.log(
+        "scrollT:" + scrollT,
+        "deviceH:" + deviceH,
+        "fullH:" + fullH,
+        "scrollH:" + scrollH
+      );
+      // scrollT = htmlDom.scrollHeight;
+      window.onscroll = () => {
+        fullH = htmlDom.offsetHeight;
+        scrollT = htmlDom.scrollTop;
+        console.log(
+          "scrollT:" + scrollT,
+          "deviceH:" + deviceH,
+          "fullH:" + fullH,
+          "scrollH:" + scrollH
+        );
+
+        // /div.scrollTop = div.scrollHeight;
+      };
     },
   },
 };
@@ -113,18 +160,29 @@ export default {
   bottom: 1rem;
   width: 100%;
   text-align: center;
+  background: #fff;
+}
+.box{
+  margin-bottom: 2rem;
 }
 .chat-list {
+  margin: 20px;
+  font-size: 0.28rem;
   .question {
     text-align: right;
+    margin: 15px 0;
     span {
-      background: rgb(171, 240, 165);
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(240, 165, 234);
     }
   }
   .answer {
     text-align: left;
     span {
-      background: rgb(143, 248, 133);
+      padding: 5px;
+      border-radius: 10px;
+      background: rgb(133, 231, 248);
     }
   }
 }
