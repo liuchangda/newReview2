@@ -1,36 +1,29 @@
-// miniprogram/pages/page1/page1.js
+// miniprogram/pages/page2/page2.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    str: 'hello world!',
-    arr: ['a', 'b', 'c', 'd'],
-    num: 0,
-    objArr: [{
-      name: 'aaa',
-      age: 12
-    }, {
-      name: 'bbb',
-      age: 12
-    }]
+    num:0,
   },
-  goPage2(){
-    // wx.navigateTo({
-    //   url:'../page2/page2?id=1001'
+  add(e){
+    // console.log(e);
+    // console.log(e.target.dataset.step);
+    // this.setData({
+    //   num:this.data.num+1,
     // })
-    wx.switchTab({
-      url: '../page2/page2?id=1001'
+    this.setData({
+      num: this.data.num + e.target.dataset.step,
     })
-    console.log(111);
-  },
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //通过options获得页面参数
+    // console.log(options);
   },
 
   /**
@@ -72,7 +65,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("daodila");
+
   },
 
   /**
