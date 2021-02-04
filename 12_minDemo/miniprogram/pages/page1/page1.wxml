@@ -2,7 +2,7 @@
 {{str}}
 <!-- 小程序里没有原生的html标签，都是小程序封装好的组件标签 -->
 --------------------
-<!-- for -->
+<!-- for &起别名 -->
 <view wx:for="{{arr}}" wx:for-item="value" wx:for-index="index" wx:key="index">
     {{value}} ---{{index}}
 </view>
@@ -13,20 +13,20 @@
 <view wx:else="{{num >0 }}">num 大于 0</view>
 ---------------------
 <!-- block类似于vue中的template 不占dom结构 渲染容器不会被渲染到页面中 -->
-<!-- template模板 定义-->
+<!-- template模板 定义 -->
 <template name="temp1">
     <view>姓名：{{name}}</view>
     <view>年龄：{{age}}</view>
 </template>
-<!-- 模板调用&&传参数&&解构-->
+<!-- 模板调用&&传参数&&解构 -->
 <template is="temp1" data="{{name:'liuc',age:21}}"></template>
 ------
 <block wx:for="{{objArr}}" wx:key="index">
     <template is="temp1" data="{{...item}}"></template>
 </block>
 ------
-<!-- 引入外部模板 import是标签-->
-<import src="./temp.wxml" ></import>
+<!-- 引入外部模板 import是标签 -->
+<import src="./temp.wxml"></import>
 <block wx:for="{{objArr}}" wx:key="index">
     <template is="temp2" data="{{...item}}"></template>
 </block>
