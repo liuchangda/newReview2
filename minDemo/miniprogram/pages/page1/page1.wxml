@@ -30,7 +30,6 @@
 <block wx:for="{{objArr}}" wx:key="index">
     <template is="temp2" data="{{...item}}"></template>
 </block>
-
 <block wx:for="{{objArr}}" wx:key="index">
     <template is="temp2" data="{{...item}}"></template>
 </block>
