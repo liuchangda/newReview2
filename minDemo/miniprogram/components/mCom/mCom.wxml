@@ -1,0 +1,5 @@
+<slot name="slot1"></slot>
+<view class="active">自定义的组件</view>
+<slot name="slot2"></slot>
+{{str}}
+<button bindtap="add" type="primary">+1</button>

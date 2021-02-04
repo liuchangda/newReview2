@@ -1,0 +1,4 @@
+<view >页面六</view>
+<button bindtap="chooseImg"  type="primary" >选择图片</button>
+<image src="{{imgUrl}}"></image>
+<button bindtap="uploadImg" type="primary">上传图片</button>

@@ -1,7 +1,12 @@
 {
   "pages": [
     "pages/page1/page1",
-    "pages/page2/page2"
+    "pages/page2/page2",
+    "pages/page3/page3",
+    "pages/page4/page4",
+    "pages/page5/page5",
+    "pages/page6/page6",
+    "pages/todolist/todolist"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -10,14 +15,14 @@
     "navigationBarTitleText": "miniDemo",
     "navigationBarTextStyle": "black"
   },
-  "tabBar":{
-    "selectedColor":"#8dd44a",
-    "list":[
+  "tabBar": {
+    "selectedColor": "#8dd44a",
+    "list": [
       {
         "text": "one",
-        "pagePath":"pages/page1/page1",
-        "selectedIconPath":"images/one1.png",
-        "iconPath":"images/one2.png"
+        "pagePath": "pages/page1/page1",
+        "selectedIconPath": "images/one1.png",
+        "iconPath": "images/one2.png"
       },
       {
         "text": "页面",

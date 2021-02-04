@@ -40,6 +40,7 @@
   "appid": "wxd3f3bad785c4d4e8",
   "projectname": "miniDemo",
   "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
@@ -62,6 +63,36 @@
           "name": "page2",
           "pathName": "pages/page2/page2",
           "query": "id=1002",
+          "scene": null
+        },
+        {
+          "name": "page3",
+          "pathName": "pages/page3/page3",
+          "query": "id=1002",
+          "scene": null
+        },
+        {
+          "name": "page4",
+          "pathName": "pages/page4/page4",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page5",
+          "pathName": "pages/page5/page5",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page6",
+          "pathName": "pages/page6/page6",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "todolist",
+          "pathName": "pages/todolist/todolist",
+          "query": "",
           "scene": null
         }
       ]

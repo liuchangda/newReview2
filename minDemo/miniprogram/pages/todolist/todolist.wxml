@@ -1,0 +1,28 @@
+<view class="wrapper">
+    <input value="{{inputVal}}" bindinput="getValue" type="text" placeholder="请输入..." />
+    <button bindtap="add" size="mini" type="primary">Add</button>
+</view>
+<view class="wrapper">
+    <view>查看已完成事项:</view>
+    <switch bindchange="showChange" checked="{{showFinished}}" />
+</view>
+<view class="wrapper">
+    <view>序号</view>
+    <view>代办事项</view>
+    <view>操作</view>
+</view>
+<checkbox-group bindchange="selectChange">
+    <view wx:for="{{todoList}}" wx:key="_id" class="wrapper">
+        <view>
+            <checkbox value="{{item._id}}" />
+            {{index+1}}
+        </view>
+        <view>{{item.msg}}</view>
+        <button wx:if="{{isNonFin}}" bindtap="finish" data-id="{{item._id}}" size="mini" type="primary">
+            完成
+        </button>
+        <button wx:else bindtap="del" data-id="{{item._id}}" size="mini" type="warn">删除</button>
+    </view>
+</checkbox-group>
+<button wx:if="{{isNonFin}}" bindtap="batchHandle" data-type="finish" type="primary">批量完成</button>
+<button wx:else bindtap="batchHandle" data-type="delete" type="warn">批量删除</button>

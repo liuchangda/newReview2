@@ -1,0 +1,6 @@
+<text class="active">页面三</text>
+{{num}}
+<mCom bind:myevent="fatherAdd" str="{{msg}}" >
+    <view slot="slot1">插入组件的东西1</view>
+    <view slot="slot2">插入组件的东西2</view>
+</mCom>

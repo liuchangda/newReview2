@@ -1,0 +1,4 @@
+/* miniprogram/pages/page3/page3.wxss */
+.active{
+    font-size: large;
+}

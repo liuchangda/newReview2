@@ -62,7 +62,7 @@ export default {
     //生成时间戳
     getTimeStamp() {
       let timer = new Date();
-      timer = Date.parse(timer);
+      timer = Date.parse(timer);//返回日期的毫秒数
       timer = timer.toString().substr(0, 10);
       timer = Number.parseInt(timer);
       return timer;

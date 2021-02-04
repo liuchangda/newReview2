@@ -1,0 +1,8 @@
+<view>页面四</view>
+<input placeholder="请输入..." value="{{msg}}" bindinput="getValue" type="text"/>
+<button bindtap="addDB" type="primary">增</button>
+<button bindtap="getDB" type="primary">查</button>
+<!-- 修改数据 -->
+<button bindtap="updateDB" type="primary">改</button>
+<button bindtap="delDB" type="primary">删</button>
+

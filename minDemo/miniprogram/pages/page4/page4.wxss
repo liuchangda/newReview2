@@ -1,0 +1,4 @@
+/* miniprogram/pages/page4/page4.wxss */
+input{
+    border: 1px solid #000;
+}
