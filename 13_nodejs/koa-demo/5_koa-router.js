@@ -42,7 +42,7 @@ router.get('/index',(ctx)=>{
         <input name="email" /><br/>
         <button type="submit" >submit</button>
       </form>
-    `;
+    `;  
     ctx.body = html;
 })
 
@@ -62,3 +62,4 @@ app
 
 app.listen(8080)
 console.log('[demo] start-quick is starting at port 80')
+//
