@@ -55,11 +55,8 @@ router.post('/regist',(ctx)=>{
     ctx.body = data;
 })
 
-app
-    .use(router.routes())
-    .use(router.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods());
     
 
 app.listen(8080)
 console.log('[demo] start-quick is starting at port 80')
-//
