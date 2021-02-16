@@ -1,0 +1,11 @@
+.blog {
+    height: 120px;
+    background: #ccc;
+    margin: 20px auto;
+    width: 815px;
+    padding: 20px;
+}
+
+.blog-title, .blog-content ,.post-time{
+    margin:  20px 0;
+}

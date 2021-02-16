@@ -1,0 +1,29 @@
+/* css reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* 能用样式 */
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    height: 50px;
+    background: #cccccc;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
