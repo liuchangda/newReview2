@@ -16,7 +16,8 @@ module.exports = {
         let { title, content } = ctx.request.body;
         // 2.安全验证
         // 3.连接数据库
-        let results = await db.query(`INSERT INTO t_blog SET ? `, { title, content });
+        let results = await model.createBlog({ title, content });
+        // let results = await db.query(`INSERT INTO t_blog SET ? `, { title, content });
         // console.log(results);
         if(results.insertId){
             await ctx.redirect('/');

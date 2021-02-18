@@ -22,41 +22,41 @@ router.get('/', (ctx) => {
 
 
 //url+params
-// router.get('/index/:name/:age', (ctx) => {
-//     let params = ctx.params;//  {name: 'lisi', age: 23}
-//     console.log(params);
-//     ctx.body = '姓名：'+params.name +","+"年龄："+params.age;
-// })
+router.get('/index/:name/:age', (ctx) => {
+    let params = ctx.params;//  {name: 'lisi', age: 23}
+    console.log(params);
+    ctx.body = '姓名：'+params.name +","+"年龄："+params.age;
+})
 
 
 //action->url: 规定当提交表单时向何处发送表单数据。
-router.get('/index',(ctx)=>{
-    let html = `
-      <h1>koa2 request post demo</h1>
-      <form method="POST" action="/regist">
-        <p>userName</p>
-        <input name="userName" /><br/>
-        <p>nickName</p>
-        <input name="nickName" /><br/>
-        <p>email</p>
-        <input name="email" /><br/>
-        <button type="submit" >submit</button>
-      </form>
-    `;  
-    ctx.body = html;
-})
+// router.get('/index',(ctx)=>{
+//     let html = `
+//       <h1>koa2 request post demo</h1>
+//       <form method="POST" action="/regist">
+//         <p>userName</p>
+//         <input name="userName" /><br/>
+//         <p>nickName</p>
+//         <input name="nickName" /><br/>
+//         <p>email</p>
+//         <input name="email" /><br/>
+//         <button type="submit" >submit</button>
+//       </form>
+//     `;  
+//     ctx.body = html;
+// })
 
 /*
 koa-bodyparser : 对于POST请求的处理，koa-bodyparser中间件可以把koa2上下文的formData数据解析到ctx.request.body中 返回一个对象
 */
-router.post('/regist',(ctx)=>{
-    let data = ctx.request.body;
-    console.log(ctx);
-    ctx.body = data;
-})
+// router.post('/regist',(ctx)=>{
+//     let data = ctx.request.body;
+//     console.log(ctx);
+//     ctx.body = data;
+// })
 
 app.use(router.routes()).use(router.allowedMethods());
     
 
-app.listen(8080)
+app.listen(3000)
 console.log('[demo] start-quick is starting at port 80')

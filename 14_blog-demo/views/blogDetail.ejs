@@ -5,11 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章详情</title>
+    <link rel="stylesheet" href="/css/blogDetail.css">
 </head>
 <body>
-    标题
-    作者|日期
-    内容
-    评论
+    <div id="container">
+        <div class="blog">
+            
+            <h3>
+                标题:<%=params.title%>
+            </h3>
+            <p>
+                发表时间:<%=params.post_time%>
+            </p>
+            内容:<br>
+            <p class="content">
+                <%=params.content%>
+            </p>
+        </div>
+        <div class="comment">
+            评论...
+            这里需要调用数据库
+        </div>
+        
+    </div>
 </body>
 </html>
