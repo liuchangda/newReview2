@@ -12,7 +12,9 @@ module.exports = {
 
         // 4.根据查询结果跳转（或输出）不同的结果页面
         if (results.length > 0) {
+            ctx.session.loginUser = username;
             await ctx.redirect('/');
+            
         } else {
             // ctx.body = '登录失败，用户名或密码不正确';
             await ctx.render('error', {
@@ -33,7 +35,8 @@ module.exports = {
             // console.log(results);
             // 4.根据查询结果跳转（或输出）不同的结果页面
             if (results.insertId) {
-                await ctx.render('login');//render的第一个参数是渲染的ejs文件名，第二个是对象传递的参数
+                await ctx.redirect('/login')
+                //await ctx.render('login');//render的第一个参数是渲染的ejs文件名，第二个是对象传递的参数
             } else {
                 await ctx.render('error', {
                     message: '注冊失敗'
