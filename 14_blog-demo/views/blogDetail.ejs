@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <title>文章详情</title>
     <link rel="stylesheet" href="/css/blogDetail.css">
 </head>
+
 <body>
     <div id="container">
         <div class="blog">
-            
+
             <h3>
                 标题:<%=params.title%>
             </h3>
@@ -23,10 +25,22 @@
             </p>
         </div>
         <div class="comment">
-            评论...
-            这里需要调用数据库
+            <p>评论</p>
+
+            <%
+            for(let i = 0;i<comments.length;i++){
+                let com = comments[i];
+%>
+            <div class="com">
+                <p class="com-content"><%=com.content%></p>
+                <p class="com-detail"><%=com.post_time%></p>
+            </div>
+            <%
+            }
+%>
         </div>
-        
+
     </div>
 </body>
+
 </html>

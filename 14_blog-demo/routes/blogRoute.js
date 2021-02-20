@@ -13,12 +13,8 @@ router.get('/createBlog',async (ctx)=>{
 router.post('/createBlog', blogController.createBlog);
 
 /* 博客详情 */
-//url+params
-router.get('/blogDetail/:title/:content/:post_time',async (ctx)=>{
-    let params = ctx.params
-    await ctx.render('blogDetail',{
-        params:params
-    })
-})
+// router.get('/blogDetail/:title/:content/:post_time',blogController.getBlogDetail);
+router.get('/blogDetail/:blogId', blogController.getBlogDetail);
+
 
 module.exports = router;

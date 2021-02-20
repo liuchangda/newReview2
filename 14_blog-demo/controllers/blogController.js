@@ -19,12 +19,22 @@ module.exports = {
         let results = await model.createBlog({ title, content });
         // let results = await db.query(`INSERT INTO t_blog SET ? `, { title, content });
         // console.log(results);
-        if(results.insertId){
+        if (results.insertId) {
             await ctx.redirect('/');
-        }else{
-            ctx.render('error',{
-                message:'出错了'
+        } else {
+            ctx.render('error', {
+                message: '出错了'
             })
         }
+    },
+    async getBlogDetail(ctx) {
+        let { blogId } = ctx.params;
+        let result = await model.getBlogDetail(blogId);
+        let comments = await model.getBlogComments(blogId);
+        console.log(comments);
+        await ctx.render('blogDetail', {
+            params: result[0],
+            comments:comments
+        })
     }
 }
