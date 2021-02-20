@@ -11,8 +11,7 @@ router.get('/', (ctx) => {
     ctx.body = "koa-router中间件"
 });
 //path键值对+query 传参
-// 1. "name=lisi&age=23"   ->  get方式在浏览器地址栏以键值对的当时输入参数
-// 2. {name: 'lisi', age: 23}
+// 1. "?name=lisi&age=23"   ->  get方式在浏览器地址栏以键值对的当时输入参数
 // router.get('/index',(ctx)=>{
 //     //let query = ctx.querystring;//1. "name=lisi&age=23"
 //     let query = ctx.query;// 2. {name: 'lisi', age: 23}

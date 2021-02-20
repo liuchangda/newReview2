@@ -1,5 +1,5 @@
 const Koa = require("koa");
-const logger = require("./log");
+const logger = require("./log"); //自定义中间件
 let fs = require('fs');
 
 const app = new Koa();

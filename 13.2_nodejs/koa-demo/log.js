@@ -1,6 +1,6 @@
-module.exports = (ctx) => {
-    console.log(ctx.method, ctx.header.host + ctx.url);
-  };
+// module.exports = (ctx) => {
+//     console.log(ctx.method, ctx.header.host + ctx.url);
+//   };
 
 // let fs = require("fs");
 
@@ -15,3 +15,17 @@ module.exports = (ctx) => {
 //         });
 //     });
 // };
+
+const fs = require('fs');
+module.exports = (ctx)=>{
+  return new Promise((resolve,reject)=>{
+    let data = ctx.method + " " + ctx.header.host + ctx.url + "\n";
+    fs.appendFile('log.txt',data,'utf-8',(err)=>{
+      if(err) reject(err);
+      fs.readFile('log.txt','utf-8',(err,data)=>{
+        if(err) reject(err);
+        else resolve(data)
+      })
+    })
+  })
+}
