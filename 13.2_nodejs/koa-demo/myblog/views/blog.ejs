@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+</head>
+
+<body>
+    <h2>blog!</h2>
+    <div class="image">
+
+    </div>
+    <div class="blog-list">
+        <%
+        for(let i = 0;i<blogs.length;i++){
+            let blog = blogs[i];
+        %>
+
+        <div class="blog">
+            <p><%=blog.title%></p>
+            <p><%=blog.content%></p>
+            <span><%=blog.post_time%></span>
+        </div>
+        <%    
+        }
+        %>
+    </div>
+    <div id="app">
+        <div class="block">
+            <span class="demonstration">页数较少时的效果</span>
+            <el-pagination @current-change="handleCurrentChange" layout="prev, pager, next" :total="50">
+            </el-pagination>
+        </div>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            visible: false
+        },
+        methods: {
+            handleCurrentChange(val) {
+                console.log(`当前页:${val}`);
+            }
+        }
+    })
+</script>
+
+</html>

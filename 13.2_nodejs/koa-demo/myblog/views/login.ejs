@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/style.css">
+    </link>
+    <link rel="stylesheet" href="/css/login.css">
+    </link>
+
+
+</head>
+
+<body>
+    <!-- <%-include('nav')%> -->
+
+    <div class="container">
+        <main>
+            <form method="POST" action="/user/login">
+                <p>
+                    用户名:<br>
+                    <input id="login-username" type="text" name="username" placeholder="username">
+                </p>
+                <p>
+                    密码:<br>
+                    <input id="login-password" type="text" name="password" placeholder="password">
+                </p>
+                <p>
+                    
+                    <p class="error"><%- include('error')%></p>
+                    <button>登录</button> <a href="/user/regist">没有账号? 去注册</a>
+                </p>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.blogs{
+    margin-top: 20px;
+    padding: 20px;
+    width: 800px;
+    height: 220px;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

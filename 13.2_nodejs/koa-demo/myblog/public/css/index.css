@@ -1,0 +1,34 @@
+.container {
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.left{
+    /* width: 800px; */
+    flex: 3;
+
+}
+.left >img{
+    width: 100%;
+}
+
+.right{
+    /* width: 200px; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.right >img{
+    width: 100%;
+}
+p{
+    margin-top: 15px;
+}
+.error{
+    color:red;
+    font-size: small;
+}
+
+

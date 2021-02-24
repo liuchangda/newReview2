@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+nav {
+    width: 1000px;
+    height: 50px;
+    margin: 0 auto;
+    background: rgb(245, 243, 118);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    width: 50px;
+    height: 50px;
+
+}
+
+.logo>img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu,.user-info{
+    display: flex;
+}
+/* 
+.container{
+    width: 1200px;
+    margin: 20px auto;
+} */

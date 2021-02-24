@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+.wrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* header start */
+header{
+  background: #ccc;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.user-info{
+  display: flex;
+
+}
+/* header end */
