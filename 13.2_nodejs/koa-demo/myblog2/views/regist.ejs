@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户登录</title>
+    <title>用户注册</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/login.css">
 
@@ -13,13 +13,16 @@
     <div class="wrap">
         <%-include('header')%>
         <div class="content">
-            <h1>登录</h1>
-            <form action="/user/login" method="post">
+            <h1>注册</h1>
+            <form action="/user/regist" method="post">
                 <p>
-                    用户名：<input type="text" name="username">
+                    用户名:<input type="text" name="username">
                 </p>
                 <p>
-                    密码：<input type="password" name="password">
+                    昵称:<input type="text" name="nickname">
+                </p>
+                <p>
+                    密码:<input type="password" name="password">
                 </p>
                 <p>
                     <button type="submit">确定</button>

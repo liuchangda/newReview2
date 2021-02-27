@@ -5,14 +5,9 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
-const session = require('koa-session')
 
 const index = require('./routes/index')
-
-// 配置session安全密钥
-app.keys = ['123454679@#$%^&'];
-// 加载session中间件
-app.use(session(app));
+const users = require('./routes/users')
 
 // error handler
 onerror(app)
@@ -26,7 +21,7 @@ app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
-  extension: 'ejs'
+  extension: 'pug'
 }))
 
 // logger
@@ -39,6 +34,7 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
+app.use(users.routes(), users.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

@@ -1,7 +1,19 @@
 <header>
     <h2>logo</h2>
+    <%
+    if(locals.username){
+      %>
+
+    欢迎：<%=username%>
+    <%
+    }else{
+%>
     <ul class=" user-info">
         <li><a href="/user/login">登录</a></li> /
-                <li><a href="/user/regist">注冊</a></li>
+        <li><a href="/user/regist">注冊</a></li>
     </ul>
+    <%
+    }
+  %>
+
 </header>

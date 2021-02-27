@@ -8,9 +8,10 @@ module.exports = {
             blog.post_time = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate();
             return blog;
         })
-        console.log(blogs);
+        let username = ctx.session.username;
         await ctx.render('index', {
-            blogs
+            blogs,
+            username
         })
     }
 }
