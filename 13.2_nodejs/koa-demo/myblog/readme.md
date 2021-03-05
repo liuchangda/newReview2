@@ -34,7 +34,7 @@ Vue2： Object.defineProperty 重新定义 data 中所有的属性， Object.def
 
 ### 5.vue中是如何检测数组变化
 <details>
-<summary>答案<summary>
+<summary>答案</summary>
 <pre><code>
 数组就是使用 object.defineProperty 重新定义数组的每一项，那能引起数组变化的方法我们都是知道的， pop 、 push 、 shift 、 unshift 、 splice 、 sort 、 reverse 这七种，只要这些方法执行改了数组内容，我就更新内容就好了
 1.是用来函数劫持的方式，重写了数组方法，具体呢就是更改了数组的原型，更改成自己的，用户调数组的一些方法的时候，走的就是自己的方法，然后通知视图去更新。
@@ -46,7 +46,7 @@ vue3：改用 proxy ，可直接监听对象数组的变化。
 
 ### 6.Vue的事件绑定原理
 <details>
-    <summary>答案<summary>
+    <summary>答案</summary>
     <pre><code>
    1. 原生 DOM 的绑定：Vue在创建真实DOM时会调用 createElm ，默认会调用 invokeCreateHooks 。会遍历当前平台下相对的属性处理代码，其中就有 updateDOMListeners 方法，内部会传入 add（） 方法
    2.组件绑定事件，原生事件，自定义事件；组件绑定之间是通过Vue中自定义的 $on 方法实现的。
@@ -56,7 +56,7 @@ vue3：改用 proxy ，可直接监听对象数组的变化。
 
 ### 7.v-model中的实现原理及如何自定义v-model
 <details>
-    <summary>答案<summary>
+    <summary>答案</summary>
     <pre><code>
     v-model 可以看成是 value+input 方法的语法糖（组件）。原生的 v-model ，会根据标签的不同生成不同的事件与属性。解析一个指令来。
     自定义：自己写 model 属性，里面放上 prop 和 event
@@ -65,7 +65,7 @@ vue3：改用 proxy ，可直接监听对象数组的变化。
 
 ### 8.为什么Vue采用异步渲染
 <details>
-    <summary>答案<summary>
+    <summary>答案</summary>
     <pre><code>
     Vue 是组件级更新，如果不采用异步更新，那么每次更新数据都会对当前组件进行重新渲染，所以为了性能， Vue 会在本轮数据更新后，在异步更新视图。核心思想 nextTick 。
     dep.notify（） 通知 watcher进行更新， subs[i].update 依次调用 watcher 的 update ， queueWatcher 将watcher 去重放入队列， nextTick（ flushSchedulerQueue ）在下一tick中刷新watcher队列（异步）。
@@ -74,7 +74,7 @@ vue3：改用 proxy ，可直接监听对象数组的变化。
 
 ### 9.nextTick
 <details>
-    <summary>答案<summary>
+    <summary>答案</summary>
     <pre><code>
     异步方法，异步渲染最后一步，与JS事件循环联系紧密。主要使用了宏任务微任务（setTimeout、promise那些），定义了一个异步方法，多次调用nextTick会将方法存入队列，通过异步方法清空当前队列。
     </code></pre>
@@ -82,7 +82,7 @@ vue3：改用 proxy ，可直接监听对象数组的变化。
 
 ### 10.Vue的生命周期
 <details>
-    <summary>答案<summary>
+    <summary>答案</summary>
     <pre><code>
    
     </code></pre>
